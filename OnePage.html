@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio – Timéo Janod</title>
+  <link rel="stylesheet" href="OnePage.css">
+</head>
+<body>
+
+  <div class="neon-left"></div>
+  <div class="neon-right"></div>
+  <div class="neon-top" aria-hidden="true"></div>
+  <div class="neon-bottom" aria-hidden="true"></div>
+  <canvas id="space-canvas" aria-hidden="true"></canvas>
+  
+
+  <header>
+    <h1>Portfolio de Timéo Janod</h1>
+    <p class="subtitle">BTS SIO</p>
+  </header>
+
+  <section id="bienvenue" class="card">
+    <h2>Bienvenue</h2>
+    <p>
+      Se site n’est rien d’autre qu’un support mon mon épreuve de BTS,
+       ainsi qu’un endroit ou éxpliqué mes compétence mon éxpérience mon parcours scolaire 
+       et pour me contacter si besoin. Maintenant que vous été prevenue, profité bien des appercu de mes capacité et de mon univers.
+    </p>
+  </section>
+
+  <section id="A propos" class="card">
+    <h2>A propos de moi</h2>
+    <ul>
+      <li>Je suis Timéo JANOD, 18 ans, étudiant en BTS SIO SLAM. Ancien élève en études du bâtiment, je me suis réorienté pour devenir développeur de jeux vidéo. Je suis passionné par les jeux vidéo,
+         le piano et les sciences, surtout l’espace.</li>
+  </section>
+
+  <section id="parcours" class="card">
+    <h2>Mon parcours scolaire & professionnel</h2>
+    <li><b>SCOLAIRE</b></li>
+    <li>Coléges Aristide BRIAND - Lons le saunier</li>
+    <li>Lycée professionnel le Corbusier Bac pro Assistant en architecture ( obtenue sans mention ) - Lons le saunier</li>
+    <li>Lycée Pasteur Mont Roland BTS Service Informatique aux Organisations ( En cours ) - Dôle</li>
+    <li><b>PROFESSIONNEL</b></li>
+    <li>Bonglet ( stage de 3 semaine )</li>
+    <li>Ahlem Paris Architect ( Stage 11 semaine )</li>
+    <li>SUPER U Montmorrot travail etudiant tout les weekend pendant 1 ans</li>
+    <li>Serveur Saisonnier au restaurant la table de perraud  ( 2 mois )- Lons le saunier</li>
+  </section>
+
+  <section id="Mes Projet" class="card">
+    <h2>Mes Projets</h2>
+    <p>Voici quelques projets que j'ai réalisés durant mon parcours scolaire(Je met a jour mes nouveau projets des que je le peut).</p>
+    <ul>
+      <li><b>Projet 1 :</b> Programation d'un jeux "Trouve ton nombre" en C#.</li>
+       <a href="C:\Users\janod\source\repos\test TTN 1\test TTN 1\bin\Debug\test TTN 1.exe" class="btn">Jeux Projet 1</a>
+      <li><b>Projet 2 :</b> Programmation d'un jeux de Dès Blackjack en C#.</li>
+      <a href="C:\Users\janod\source\repos\DéBlackJack\DéBlackJack\bin\Debug\DéBlackJack.exe" class="btn">Jeux Projet 2</a>
+      <li><b>Projet 3 :</b> Conception du portfolio sur le quel vous vous trouvé ( HTML, CSS, JAVASCRIPT).</li>
+  </section>
+
+  <section id="contact" class="card">
+    <h2>Mon CV et moyen de me contacter</h2>
+    <p>Ici vous pouvez télécharger mon CV si mon profil vous intérèsse</p>
+    <p>Vous pouvez aussi me contacter par email au besoin</p>
+    <a href="C:\Users\janod\Desktop\test portfolio\img\JANOD TIMEO CV.pdf" class="btn">Télécharger mon CV</a>
+    <a href="mailto:janodtimeo@gmail.com" class="btn">Me contacter ( Mail )</a>
+  </section>
+
+  <section id="map" class="card card-map">
+    <h2>Mon Lycée</h2>
+    <p class="muted">Voici la localisation google maps de mon lycée actuelle</p>
+      <div class="map-wrapper">
+        <iframe
+          src="https://maps.google.com/maps?q=9%20Rue%20Rockefeller%2C%20Dole%2C%20France&z=17&output=embed"
+          title="Carte — Lycée, 9 rue Rockefeller, Dole"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          aria-label="Carte localisant le lycée — 9 rue Rockefeller, Dole"
+        ></iframe>
+      </div>
+  </section>
+
+  <footer class="site-footer" aria-label="Pied de page">
+    <div class="footer-inner">
+      <div class="footer-info">
+        <p class="footer-title">Timéo Janod — Portfolio</p>
+        <p class="footer-meta">Email: janodtimeo@gmail.com</p>
+      </div>
+      <nav class="footer-nav" aria-label="Liens de sections">
+        <a href="#bienvenue" class="footer-btn">Bienvenue</a>
+        <a href="#apropos" class="footer-btn">À propos</a>
+        <a href="#parcours" class="footer-btn">Parcours</a>
+        <a href="#projets" class="footer-btn">Projets</a>
+        <a href="#contact" class="footer-btn">Contact</a>
+        <a href="#map" class="footer-btn">Lycée</a>
+      </nav>
+    </div>
+    <div class="footer-copyright">© 2024 – Portfolio de Timéo Janod</div>
+  </footer>
+
+  <script>
+    (function(){
+      const sections = document.querySelectorAll('section[id]');
+      const links = document.querySelectorAll('.footer-nav a');
+      if (!sections.length || !links.length) return;
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const id = entry.target.id;
+          const link = document.querySelector('.footer-nav a[href="#'+id+'"]');
+          if (link) link.classList.toggle('active', entry.isIntersecting && entry.intersectionRatio > 0.55);
+        });
+      }, { threshold: [0.55] });
+      sections.forEach(s => obs.observe(s));
+    })();
+  </script>
+  <div class="spacer" aria-hidden="true"></div>
+
+</body>
+</html>
